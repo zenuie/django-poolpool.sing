@@ -139,7 +139,7 @@ EMAIL_HOST_USER = 'postmaster@sandbox85742f02f9834ee386ecceefa3482a22.mailgun.or
 EMAIL_HOST_PASSWORD = 'a3d2708e476d924969b746e3a01d463a-07bc7b05-d215dd51'
 
 # Dropbox Storage
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = 'sl.AqNWyvTpK-MC5jcfDVhemDTvF4n--asgbxXIun1mZSWb9qBtcZ3IERIHkheJEvsx-6WRbP-UsALKXaex4AeFJ98LUGfyOrN6CL850EGqzncdpqjIrBP3vOIOBlz08JDHUs2S4zk'
-DROPBOX_ROOT_PATH = '/static/images'
-DROPBOX_TIMEOUT = 100
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DROPBOX_OAUTH2_TOKEN = 'xdNYSY_INXQAAAAAAAAAAUZgPFEG4WnkS6KdB_ydFJTWl_xdbd5ZWdX4-dmrP7LE'
+# DROPBOX_ROOT_PATH = '/static/images'
+# DROPBOX_TIMEOUT = 100
