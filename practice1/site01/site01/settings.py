@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from io import StringIO
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'django_filters',
     'password_reset',
-    'storages',
+    'django_dropbox_storage',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/images/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'python-trianing/django/realpython_django_tutorial/practice1/site01/static/images')
 
 # SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -139,7 +140,5 @@ EMAIL_HOST_USER = 'postmaster@sandbox85742f02f9834ee386ecceefa3482a22.mailgun.or
 EMAIL_HOST_PASSWORD = 'a3d2708e476d924969b746e3a01d463a-07bc7b05-d215dd51'
 
 # Dropbox Storage
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = 'xdNYSY_INXQAAAAAAAAAAUZgPFEG4WnkS6KdB_ydFJTWl_xdbd5ZWdX4-dmrP7LE'
-# DROPBOX_ROOT_PATH = '/static/images'
-# DROPBOX_TIMEOUT = 100
+DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+DROPBOX_ACCESS_TOKEN = 'iCbzXS68_cMAAAAAAAAAAYE_uRnfRnd4x7yMnByWCBv-1kKQqnYXrmPlNdoAtQux'
