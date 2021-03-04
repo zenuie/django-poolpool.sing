@@ -1,17 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django_dropbox_storage.storage import DropboxStorage
-
 
 
 # Create your models here.
-class Customer(models.Model):
-    DROPBOX_STORAGE = DropboxStorage()
+class Customer(models.Model):  # 個人用戶資訊
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
-    profile_pic = models.ImageField(default='/profile1.png', storage=DROPBOX_STORAGE)
+    profile_pic = models.ImageField(default="profile1.png", null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
 

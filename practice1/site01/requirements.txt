@@ -7,10 +7,10 @@ Django==3.1.2
 django-email-users==1.1.0
 django-filter==2.4.0
 django-password-reset==2.0
-django-storages[dropbox]==1.11.1
+boto3
 dropbox==11.1.0
 idna==2.10
-django-dropbox-storage==0.4.1
+django-storages
 Pillow==8.0.1
 ply==3.11
 psycopg2==2.8.6

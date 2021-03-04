@@ -5,7 +5,6 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from io import StringIO
 from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user, allowed_user, admin_only

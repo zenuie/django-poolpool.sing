@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-from io import StringIO
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'django_filters',
     'password_reset',
-    'django_dropbox_storage',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +138,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'postmaster@sandbox85742f02f9834ee386ecceefa3482a22.mailgun.org'
 EMAIL_HOST_PASSWORD = 'a3d2708e476d924969b746e3a01d463a-07bc7b05-d215dd51'
 
-# Dropbox Storage
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-DROPBOX_ACCESS_TOKEN = 'iCbzXS68_cMAAAAAAAAAAYE_uRnfRnd4x7yMnByWCBv-1kKQqnYXrmPlNdoAtQux'
+# S3 BUCKETS CONFIG
+AWS_ACCESS_KEY_ID = 'AKIA5CKRL2T3GBA5AL3F'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'poposing-storage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
