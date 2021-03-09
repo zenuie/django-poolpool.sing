@@ -39,7 +39,7 @@ def login_page(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('dashboard')
         else:
             messages.info(request, '使用者名稱錯誤或密碼錯誤')
 
