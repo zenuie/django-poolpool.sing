@@ -35,11 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'accounts.apps.AccountsConfig',
     'django_filters',
     'password_reset',
     'storages',
+    'music_player',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'site01.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5mtrve8h7jj3q',
-        'USER': 'rnjsyphjligzmr',
-        'PASSWORD': '1b75ff692be02d3751d518220a01c1ff09cef1812f60cc045cf019a0c9ec488a',
-        'HOST': 'ec2-18-205-122-145.compute-1.amazonaws.com',
+        'NAME': 'ddisj93q6q26os',
+        'USER': 'bhnpxnvrcdvdtt',
+        'PASSWORD': '88c1c2141a2ab19c6463ddbb59cecaf81b6307e95c35a09f51ab655bc73d8da8',
+        'HOST': 'ec2-54-198-252-9.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    os.path.join(BASE_DIR, 'static')
 ]
 
 MEDIA_URL = '/images/'

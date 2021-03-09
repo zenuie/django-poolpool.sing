@@ -22,7 +22,7 @@ def register_page(request):
             user = form.save()
             username = form.cleaned_data.get('username')
 
-            messages.success(request, '帳號建立成功' + username)
+            messages.success(request, '帳號建立成功，您叫做' + username)
             return redirect('login')
 
     context = {'form': form}
@@ -50,6 +50,10 @@ def login_page(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+def home_page(request):
+    return render(request, 'accounts/index.html')
 
 
 @login_required(login_url='login')

@@ -14,7 +14,6 @@ django-password-reset==2.0
 django-storages==1.11.1
 dropbox==11.1.0
 idna==2.10
-import==0.0.1
 jmespath==0.10.0
 Pillow==8.0.1
 ply==3.11
