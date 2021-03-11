@@ -39,7 +39,7 @@ def login_page(request):
 
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            return redirect('home_page')
         else:
             messages.info(request, '使用者名稱錯誤或密碼錯誤')
 
@@ -49,7 +49,8 @@ def login_page(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('login')
+    return redirect('home_page')
+
 
 
 def home_page(request):
@@ -58,7 +59,7 @@ def home_page(request):
 
 @login_required(login_url='login')
 @admin_only
-def home(request):
+def dashboard(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
 
@@ -88,13 +89,13 @@ def account_settings(request):
 
 @login_required(login_url='login')
 # @allowed_user(allowed_roles=['customer'])
-def user_page(request):
+def user_page(request):  # 計算使用者數據
     orders = request.user.customer.order_set.all()
 
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
-    pending = orders.filter(status='Pending').count()
-    context = {'orders': orders, 'total_orders': total_orders, 'delivered': delivered, 'pending': pending}
+    pending = orders.filter(status='聆聽次數').count()
+    context = {'orders': orders, '聆聽次數': total_orders, '全站歌曲數': delivered, '收藏數量': pending}
     return render(request, 'accounts/user.html', context)
 
 
