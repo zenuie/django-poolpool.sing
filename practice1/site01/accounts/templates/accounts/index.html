@@ -5,8 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>Creative - Start Bootstrap Theme</title>
+    <meta name="破破" content=""/>
+    <title>破破音庫</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}"/>
     <!-- Font Awesome icons (free version)-->
@@ -25,7 +25,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="{% url 'home_page' %}">破破音酷~</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -35,17 +35,17 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">歌曲列表</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">wave直播</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">各式連結圖案</a></li>
-            {% if request.user.is_active %}
+                {% if request.user.is_active %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'dashboard' %}">主控台</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger"></a>您好, {{ request.user }}</li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a></li>
-            {% elif request.user.is_superuser %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">登出</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger">您好補補"這裡塞數字"號, {{ request.user }}</a></li>
+                {% elif request.user.is_superuser %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'dashboard' %}">主控台</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger"></a>主人, {{ request.user }}</li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Login</a></li>
-            {% endif %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">登出</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger">主人, {{ request.user }}</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">登入</a></li>
+                {% endif %}
 
             </ul>
         </div>
@@ -87,7 +87,8 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/poolppol.sing/" target="_blank"><i
+                            class="fab fa-4x fa-instagram text-primary mb-4"></i></a>
                     <h3 class="h4 mb-2">IG</h3>
                     <p class="text-muted mb-0">點擊關注他</p>
                 </div>
@@ -101,22 +102,23 @@
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                    <h3 class="h4 mb-2">Ready to Publish</h3>
-                    <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                    <a href="https://forms.gle/FdvrV6taTab2pNyw7"><i
+                            class="fas  fa-4x fa-comments text-primary mb-4"></i></a>
+                    <h3 class="h4 mb-2">Google表單</h3>
+                    <p class="text-muted mb-0">想推薦給破破練的歌(點擊圖示)</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                    <h3 class="h4 mb-2">Made with Love</h3>
-                    <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                    <i class="fas  fa-4x fa-hand-holding-heart text-primary mb-4"></i>
+                    <h3 class="h4 mb-2">抱歉了錢錢我需要斗內給破破</h3>
+                    <p class="text-muted mb-0">喜歡破破並想以小額金錢贊助他</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Portfolio-->
+<!-- Portfolio       這邊放實況的截圖-->
 <div id="portfolio">
     <div class="container-fluid p-0">
         <div class="row no-gutters">
@@ -180,8 +182,8 @@
 <!-- Call to action-->
 <section class="page-section bg-dark text-white">
     <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
+        <h2 class="mb-4">下載Wave收聽破破的直播</h2>
+        <a class="btn btn-light btn-xl" href="https://www.wave.com.tw/" target="_blank">Download Now!</a>
     </div>
 </section>
 <!-- Contact-->
@@ -189,21 +191,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2 class="mt-0">Let's Get In Touch!</h2>
+                <h2 class="mt-0">綠界科技</h2>
                 <hr class="divider my-4"/>
-                <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email
-                    and we will get back to you as soon as possible!</p>
+                <p class="text-muted mb-5">客服時間 一到日24小時服務</p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
                 <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                <div>+1 (555) 123-4567</div>
+                <div>(02) 2655-1775</div>
             </div>
             <div class="col-lg-4 mr-auto text-center">
                 <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                 <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                <a class="d-block" href="https://www.ecpay.com.tw">https://www.ecpay.com.tw</a>
             </div>
         </div>
     </div>
@@ -211,7 +212,7 @@
 <!-- Footer-->
 <footer class="bg-light py-5">
     <div class="container">
-        <div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div>
+        <div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap and zenuie</div>
     </div>
 </footer>
 <!-- Bootstrap core JS-->
