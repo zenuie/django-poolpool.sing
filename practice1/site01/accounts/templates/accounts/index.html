@@ -35,14 +35,14 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">歌曲列表</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">wave直播</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">各式連結圖案</a></li>
-                {% if request.user.is_active %}
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'dashboard' %}">主控台</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">登出</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger">您好補補"這裡塞數字"號, {{ request.user }}</a></li>
-                {% elif request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'dashboard' %}">主控台</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">登出</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger">主人, {{ request.user }}</a></li>
+                {% elif request.user.is_active %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'dashboard' %}">主控台</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">登出</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger">您好補補"這裡塞數字"號, {{ request.user }}</a></li>
                 {% else %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">登入</a></li>
                 {% endif %}
@@ -87,7 +87,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <a href="https://www.instagram.com/poolppol.sing/" target="_blank"><i
+                    <a href="https://www.instagram.com/poolpool.sing/" target="_blank"><i
                             class="fab fa-4x fa-instagram text-primary mb-4"></i></a>
                     <h3 class="h4 mb-2">IG</h3>
                     <p class="text-muted mb-0">點擊關注他</p>
@@ -102,7 +102,7 @@
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <a href="https://forms.gle/FdvrV6taTab2pNyw7"><i
+                    <a href="https://forms.gle/FdvrV6taTab2pNyw7" target="_blank"><i
                             class="fas  fa-4x fa-comments text-primary mb-4"></i></a>
                     <h3 class="h4 mb-2">Google表單</h3>
                     <p class="text-muted mb-0">想推薦給破破練的歌(點擊圖示)</p>

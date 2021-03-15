@@ -10,6 +10,7 @@ class Customer(models.Model):  # 個人用戶資訊
     email = models.CharField(max_length=200, null=True)
     profile_pic = models.ImageField(default="image/profile1.png", null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+    # registered_number = models.IntegerField(null=True)
 
 
 def __str__(self):

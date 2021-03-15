@@ -11,6 +11,8 @@ def customer_profile(sender, instance, created, **kwargs):
         Customer.objects.create(
             user=instance,
             name=instance.username,
+            # email=instance.email,
+            # registered_number=instance.registered_number,
         )
         print('帳號建立成功！')
 

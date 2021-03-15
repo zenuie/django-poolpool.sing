@@ -21,8 +21,10 @@ def register_page(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-
-            messages.success(request, '帳號建立成功，您叫做' + username)
+            # number = Customer.registered_number()
+            # number += 1
+            # messages.success(request, '帳號建立成功' + username + '您是第' + number + '位補補😘')
+            messages.success(request, '帳號建立成功 ' + username)
             return redirect('login')
 
     context = {'form': form}
@@ -50,7 +52,6 @@ def login_page(request):
 def logout_user(request):
     logout(request)
     return redirect('home_page')
-
 
 
 def home_page(request):
