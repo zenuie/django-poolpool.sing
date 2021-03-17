@@ -24,7 +24,9 @@ SECRET_KEY = 'mr3gknjy(*#=+fim-zll$8*--j=xd^f$i!1f$oa1^^9tk+l@a)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://popo-sing.herokuapp.com/'
+]
 
 # Application definition
 
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'site01.urls'
