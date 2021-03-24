@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .decorators import unauthenticated_user, allowed_user, admin_only
+from music_player.models import *
 from .models import *
 from .form import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
@@ -61,7 +62,7 @@ def home_page(request):
 @login_required(login_url='login')
 @admin_only
 def dashboard(request):
-    orders = Order.objects.all()
+    orders = Song.objects.all()
     customers = Customer.objects.all()
 
     total_customers = customers.count()
@@ -77,7 +78,7 @@ def dashboard(request):
 @login_required(login_url='login')
 @allowed_user(allowed_roles=['customer'])
 def account_settings(request):
-    customer = request.user.customer
+    customer = request.user.artists
     form = CustomerForm(instance=customer)
 
     if request.method == "POST":
@@ -91,7 +92,7 @@ def account_settings(request):
 @login_required(login_url='login')
 # @allowed_user(allowed_roles=['customer'])
 def user_page(request):  # 計算使用者數據
-    orders = request.user.customer.order_set.all()
+    orders = request.user.artists.order_set.all()
 
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
@@ -103,7 +104,7 @@ def user_page(request):  # 計算使用者數據
 @login_required(login_url='login')
 @allowed_user(allowed_roles=['admin'])
 def products(request):
-    products = Product.objects.all()
+    products = Album.objects.all()
     return render(request, 'accounts/products.html', {'products': products})
 
 
@@ -122,9 +123,9 @@ def customer(request, pk):
 
 @login_required(login_url='login')
 def create_order(request, pk):
-    OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10)
+    OrderFormSet = inlineformset_factory(Customer, Song, fields=('product', 'status'), extra=10)
     customer = Customer.objects.get(id=pk)
-    formset = OrderFormSet(queryset=Order.objects.none(), instance=customer)
+    formset = OrderFormSet(queryset=Song.objects.none(), instance=customer)
     # form = OrderForm(initial={'customer': customer})
     if request.method == 'POST':
         # form = OrderForm(request.POST)
@@ -138,7 +139,7 @@ def create_order(request, pk):
 
 @login_required(login_url='login')
 def update_order(request, pk):
-    order = Order.objects.get(id=pk)
+    order = Song.objects.get(id=pk)
     form = OrderForm(instance=order)
 
     if request.method == 'POST':
@@ -153,7 +154,7 @@ def update_order(request, pk):
 
 @login_required(login_url='login')
 def delete_order(request, pk):
-    order = Order.objects.get(id=pk)
+    order = Song.objects.get(id=pk)
     form = OrderForm(instance=order)
     if request.method == 'POST':
         order.delete()

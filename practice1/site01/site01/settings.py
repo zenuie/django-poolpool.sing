@@ -24,9 +24,7 @@ SECRET_KEY = 'mr3gknjy(*#=+fim-zll$8*--j=xd^f$i!1f$oa1^^9tk+l@a)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'https://popo-sing.herokuapp.com/'
-]
+ALLOWED_HOSTS = []
 
 # Application definition
 

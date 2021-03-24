@@ -1,5 +1,6 @@
 import django_filters
 from django_filters import DateFilter, CharFilter
+from music_player.models import Song
 from .models import *
 
 
@@ -9,6 +10,6 @@ class OrderFilter(django_filters.FilterSet):
     note = CharFilter(field_name='note', lookup_expr='icontains')
 
     class Meta:
-        model = Order
+        model = Song
         fields = '__all__'
         exclude = ['customer', 'date_created']
