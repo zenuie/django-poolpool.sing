@@ -1,8 +1,7 @@
 from django.forms import ModelForm
-from .models import Customer
+from .models import Customer, Order
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from music_player.models import Song
 
 
 class CustomerForm(ModelForm):
@@ -14,7 +13,7 @@ class CustomerForm(ModelForm):
 
 class OrderForm(ModelForm):
     class Meta:
-        model = Song
+        model = Order
         fields = '__all__'
 
 

@@ -78,7 +78,7 @@ def dashboard(request):
 @login_required(login_url='login')
 @allowed_user(allowed_roles=['customer'])
 def account_settings(request):
-    customer = request.user.artists
+    customer = request.user.customer
     form = CustomerForm(instance=customer)
 
     if request.method == "POST":
@@ -92,7 +92,7 @@ def account_settings(request):
 @login_required(login_url='login')
 # @allowed_user(allowed_roles=['customer'])
 def user_page(request):  # 計算使用者數據
-    orders = request.user.artists.order_set.all()
+    orders = request.user.customer.order_set.all()
 
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
@@ -162,3 +162,6 @@ def delete_order(request, pk):
 
     context = {'item': order}
     return render(request, 'accounts/delete_order.html', context)
+
+
+
