@@ -62,7 +62,7 @@ def home_page(request):
 @login_required(login_url='login')
 @admin_only
 def dashboard(request):
-    orders = Song.objects.all()
+    orders = Order.objects.all()
     customers = Customer.objects.all()
 
     total_customers = customers.count()
@@ -70,7 +70,8 @@ def dashboard(request):
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
 
-    context = {'orders': orders, 'customers': customers, 'total_orders': total_orders, 'delivered': delivered,
+    context = {'orders': orders, 'customers': customers, 'total_orders': total_orders,
+               'delivered': delivered,
                'pending': pending}
     return render(request, 'accounts/dashboard.html', context)
 
@@ -162,6 +163,3 @@ def delete_order(request, pk):
 
     context = {'item': order}
     return render(request, 'accounts/delete_order.html', context)
-
-
-

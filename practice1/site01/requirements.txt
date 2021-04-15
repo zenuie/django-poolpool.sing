@@ -17,7 +17,7 @@ idna==2.10
 jmespath==0.10.0
 Pillow==8.0.1
 ply==3.11
-psycopg2==2.8.6
+psycopg2-binary
 python-dateutil==2.8.1
 pytz==2020.1
 requests==2.25.1

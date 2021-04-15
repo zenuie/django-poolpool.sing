@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from music_player.models import Album
 
+
 def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -39,7 +40,7 @@ def admin_only(view_func):
         if group in 'customer':
             return redirect('user')
         elif group in 'admin':
-            print('admin:',)
+            print('admin:', )
             return view_func(request, *args, **kwargs)
 
     return wrapper_func

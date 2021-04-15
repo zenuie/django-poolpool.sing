@@ -8,19 +8,21 @@
 
 </head>
 <body>
+{% for song in songs %}
 <!-- partial:index.partial.html -->
 <div class="player">
    <div class="left"></div>
    <div class="right">
       <div class="top">
-         <a class="song" href="#">歌曲名稱</a>
-         <a class="artist" href="#">歌手</a>
+         <a class="song" href="#">{{song.song_name}}</a>
+         <a class="artist" href="#">{{song.artists}}</a>
       </div>
       <div class="bottom">
          <video controls="" _autoplay="" name="media"><source src="{% static '/poposing_mp3/bytoo-husbandNo1.mp3' %}" type="audio/mpeg"></video>
       </div>
    </div>
 </div>
+{% endfor %}
 <!-- partial -->
 <!--<script  src="{% static '/js/musicplayer_script.js' %}"></script>-->
 </body>

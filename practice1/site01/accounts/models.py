@@ -16,9 +16,9 @@ class Customer(models.Model):  # 個人用戶資訊
 
 class Order(models.Model):  # 用戶點播紀錄
     STATUS = (
-        ('點播次數', '點播次數'),
-        ('尚未聽過', '尚未聽過'),
-        ('已聽過', '已聽過'),
+        ('Delivered', '點播次數'),
+        ('Pending', '尚未聽過'),
+        ('Delivereds', '已聽過'),
     )
 
     customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
