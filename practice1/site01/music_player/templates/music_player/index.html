@@ -1,25 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Lyrics Player</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600'><link rel="stylesheet" href="{% static '/css/musicplayer_style.css' %}">
+    <meta charset="UTF-8">
+    <title>CodePen - Lyrics Player</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600'>
+    <link rel="stylesheet" href="{% static '/css/musicplayer_style.css' %}">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="player">
-   <div class="left"></div>
-   <div class="right">
-      <div class="top">
-         <a class="song" href="#">歌曲名稱</a>
-         <a class="artist" href="#">歌手</a>
-      </div>
-      <div class="bottom">
-         <video controls="" _autoplay="" name="media"><source src="{% static '/poposing_mp3/bytoo-husbandNo1.mp3' %}" type="audio/mpeg"></video>
-      </div>
-   </div>
+    <div class="left"></div>
+    <div class="right">
+        <div class="top">
+            <a class="song" href="#">歌曲名稱</a>
+            <a class="artist" href="#">歌手</a>
+        </div>
+        <div class="bottom">
+            <video controls="" _autoplay="" name="media">
+                <source src="{% static '/poposing_mp3/bytoo-husbandNo1.mp3' %}" type="audio/mpeg">
+            </video>
+        </div>
+    </div>
 </div>
 <!-- partial -->
 <!--<script  src="{% static '/js/musicplayer_script.js' %}"></script>-->
