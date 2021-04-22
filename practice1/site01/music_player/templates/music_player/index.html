@@ -1,29 +1,87 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Lyrics Player</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600'><link rel="stylesheet" href="{% static '/css/musicplayer_style.css' %}">
+    <meta charset="UTF-8">
+    <title>婆婆播放</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+    <link rel="stylesheet" href="{% static '/css/musicplayer_style.css' %}">
 
 </head>
 <body>
-{% for song in songs %}
 <!-- partial:index.partial.html -->
 <div class="player">
-   <div class="left"></div>
-   <div class="right">
-      <div class="top">
-         <a class="song" href="#">{{song.song_name}}</a>
-         <a class="artist" href="#">{{song.artists}}</a>
-      </div>
-      <div class="bottom">
-         <video controls="" _autoplay="" name="media"><source src="{% static '/poposing_mp3/bytoo-husbandNo1.mp3' %}" type="audio/mpeg"></video>
-      </div>
-   </div>
+    <div class="player__wrapper">
+        <div class="player__prev-work player__item"><i class="material-icons" id="prev">skip_previous</i></div>
+        <div class="player__play player__item"><i class="material-icons" id="play">play_arrow</i></div>
+        <div class="player__next-work player__item"><i class="material-icons" id="next">skip_next</i></div>
+        <div class="player__shuffle player__item"><i class="material-icons" id="shuffle">shuffle</i></div>
+        <div class="player__repeat player__item"><i class="material-icons" id="repeat">repeat</i></div>
+        <div class="player__timeline player__item">
+            <div class="timeline"><span class="timeline__passtime" id="passtime">00:00:00</span>
+                <div class="timeline__progress-wrapper">
+                    <div class="timeline__progress-bg" id="timeline-bg"></div>
+                    <div class="timeline__progress-bar" id="timeline-bar"></div>
+                    <div class="timeline__progress-handle" id="timeline-handle"></div>
+                </div>
+                <span class="timeline__duration" id="duration">00:10:59</span>
+            </div>
+        </div>
+        <div class="player__volume player__item"><i class="material-icons" id="volume">volume_up</i>
+            <div class="volume">
+                <div class="volume__wrapper hidden" id="volume-wrapper">
+                    <div class="volume__progress-bg" id="volume_bg"></div>
+                    <div class="volume__progress-bar" id="volume_bar"></div>
+                    <div class="volume__progress-handle" id="volume_handle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="player__info player__item">
+            <div class="info"><img class="info__thumb" id="current-thumb"
+                                   src="https://i1.sndcdn.com/artworks-000406637742-g6nq0a-t120x120.jpg"/>
+                <div class="info__wrapper">
+                    <p class="info__author" id="current-author" title="Front End Happy Hour">Front End Happy Hour</p>
+                    <span class="info__name" id="current-name">Episode 066 - Type systems - a static drink list</span>
+                </div>
+            </div>
+        </div>
+        <div class="player__queue player__item"><i class="material-icons" id="queue">playlist_play</i>
+            <div class="queue">
+                <div class="queue__wrapper hidden" id="queue-wrapper">
+                    <div class="queue__panel">
+                        <h3 class="queue__title">Next Up</h3>
+                        <div class="queue__hide"><i class="material-icons" id="queue-close">close</i></div>
+                    </div>
+                    <div class="queue__playlist" id="playlist">
+                        <div class="queue__item">
+                            <div class="info"><img class="info__thumb"
+                                                   src="https://i1.sndcdn.com/artworks-000406637742-g6nq0a-t120x120.jpg"/>
+                                <div class="info__wrapper"><a class="info__author" href="/front-end-happy-hour"
+                                                              title="Front End Happy Hour">Front End Happy Hour</a><span
+                                        class="info__name">Episode 066 - Type systems - a static drink list</span></div>
+                            </div>
+                        </div>
+                        <div class="queue__item">
+                            <div class="info"><img class="info__thumb"
+                                                   src="https://i1.sndcdn.com/artworks-000406637742-g6nq0a-t120x120.jpg"/>
+                                <div class="info__wrapper"><a class="info__author" href="/front-end-happy-hour"
+                                                              title="Front End Happy Hour">Front End Happy Hour</a><span
+                                        class="info__name">Episode 066 - Type systems - a static drink list</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{% endfor %}
 <!-- partial -->
-<!--<script  src="{% static '/js/musicplayer_script.js' %}"></script>-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.7.5/dayjs.min.js'></script>
+<script src="{% static '/js/musicplayer_script.js' %}"></script>
+
 </body>
 </html>

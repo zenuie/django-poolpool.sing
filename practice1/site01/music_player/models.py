@@ -3,10 +3,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Artist(models.Model):
+class Artist(models.Model):  # 歌手資訊
     name = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=200, null=True)
-    birthday = models.CharField(max_length=200, null=True,blank=True)
+    birthday = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -43,7 +43,7 @@ class Song(models.Model):  # 歌曲資訊
     album = models.ForeignKey(Album, null=True, on_delete=models.SET_NULL)
     song_name = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    note = models.CharField(max_length=1000, null=True,blank=True)
+    note = models.CharField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
         return self.song_name
