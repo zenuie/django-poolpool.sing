@@ -7,6 +7,7 @@ chardet==4.0.0
 coverage==5.4
 datafilter==0.4.2
 dj-database-url==0.5.0
+dj_static==0.0.6
 Django==3.1.2
 django-email-users==1.1.0
 django-filter==2.4.0
@@ -26,3 +27,4 @@ six==1.15.0
 sqlparse==0.4.1
 stone==3.2.1
 urllib3==1.26.3
+gunicorn==19.3.0
