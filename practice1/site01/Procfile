@@ -1,1 +1,2 @@
 web: gunicorn site01.wsgi
+clock: python clock.py
