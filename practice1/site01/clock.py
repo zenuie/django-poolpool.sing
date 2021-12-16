@@ -5,7 +5,7 @@ import time
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('interval', minutes=29)
+@sched.scheduled_job('interval', minutes=20)
 def timed_job_awake_your_app():
     print('awake app every 10 minutes.')
     url = 'https://popo-sing.herokuapp.com/'
